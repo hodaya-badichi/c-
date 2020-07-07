@@ -1,0 +1,24 @@
+D:\Project\Dto\bin\Debug\Dto.dll
+D:\Project\Dto\bin\Debug\Dto.pdb
+D:\Project\Dto\bin\Debug\Dal.dll
+D:\Project\Dto\bin\Debug\Dal.pdb
+D:\Project\Dto\obj\Debug\Dto.csprojAssemblyReference.cache
+D:\Project\Dto\obj\Debug\Dto.csproj.CoreCompileInputs.cache
+D:\Project\Dto\obj\Debug\Dto.csproj.CopyComplete
+D:\Project\Dto\obj\Debug\Dto.dll
+D:\Project\Dto\obj\Debug\Dto.pdb
+D:\Project\Dto\bin\Debug\EntityFramework.dll
+D:\Project\Dto\bin\Debug\Dal.dll.config
+D:\Project\Dto\bin\Debug\EntityFramework.xml
+C:\Users\user1\Desktop\פרויקט c#\Project\Dto\bin\Debug\Dto.dll
+C:\Users\user1\Desktop\פרויקט c#\Project\Dto\bin\Debug\Dto.pdb
+C:\Users\user1\Desktop\פרויקט c#\Project\Dto\bin\Debug\Dal.dll
+C:\Users\user1\Desktop\פרויקט c#\Project\Dto\bin\Debug\EntityFramework.dll
+C:\Users\user1\Desktop\פרויקט c#\Project\Dto\bin\Debug\Dal.pdb
+C:\Users\user1\Desktop\פרויקט c#\Project\Dto\bin\Debug\Dal.dll.config
+C:\Users\user1\Desktop\פרויקט c#\Project\Dto\bin\Debug\EntityFramework.xml
+C:\Users\user1\Desktop\פרויקט c#\Project\Dto\obj\Debug\Dto.csprojAssemblyReference.cache
+C:\Users\user1\Desktop\פרויקט c#\Project\Dto\obj\Debug\Dto.csproj.CoreCompileInputs.cache
+C:\Users\user1\Desktop\פרויקט c#\Project\Dto\obj\Debug\Dto.csproj.CopyComplete
+C:\Users\user1\Desktop\פרויקט c#\Project\Dto\obj\Debug\Dto.dll
+C:\Users\user1\Desktop\פרויקט c#\Project\Dto\obj\Debug\Dto.pdb

@@ -1,0 +1,94 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="taxisModelStoreContainer" CdmEntityContainer="taxisEntities">
+    <EntitySetMapping Name="RequestsTables">
+      <EntityTypeMapping TypeName="taxisModel.RequestsTable">
+        <MappingFragment StoreEntitySet="RequestsTable">
+          <ScalarProperty Name="RequestsCode" ColumnName="RequestsCode" />
+          <ScalarProperty Name="LocationCode" ColumnName="LocationCode" />
+          <ScalarProperty Name="RequestsDate" ColumnName="RequestsDate" />
+          <ScalarProperty Name="Dedicated" ColumnName="Dedicated" />
+          <ScalarProperty Name="Frequency" ColumnName="Frequency" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CarTables">
+      <EntityTypeMapping TypeName="taxisModel.CarTable">
+        <MappingFragment StoreEntitySet="CarTable">
+          <ScalarProperty Name="Dedicated" ColumnName="Dedicated" />
+          <ScalarProperty Name="Places" ColumnName="Places" />
+          <ScalarProperty Name="EmployeeCode" ColumnName="EmployeeCode" />
+          <ScalarProperty Name="CarCode" ColumnName="CarCode" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EmployeeTables">
+      <EntityTypeMapping TypeName="taxisModel.EmployeeTable">
+        <MappingFragment StoreEntitySet="EmployeeTable">
+          <ScalarProperty Name="EmployeeEmail" ColumnName="EmployeeEmail" />
+          <ScalarProperty Name="EmployeePhoneNumber" ColumnName="EmployeePhoneNumber" />
+          <ScalarProperty Name="EmployeeAdress" ColumnName="EmployeeAdress" />
+          <ScalarProperty Name="EmployeePassword" ColumnName="EmployeePassword" />
+          <ScalarProperty Name="EmployeeName" ColumnName="EmployeeName" />
+          <ScalarProperty Name="EmployeeCode" ColumnName="EmployeeCode" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="LocationTables">
+      <EntityTypeMapping TypeName="taxisModel.LocationTable">
+        <MappingFragment StoreEntitySet="LocationTable">
+          <ScalarProperty Name="LocationName" ColumnName="LocationName" />
+          <ScalarProperty Name="LocationCode" ColumnName="LocationCode" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RouteTables">
+      <EntityTypeMapping TypeName="taxisModel.RouteTable">
+        <MappingFragment StoreEntitySet="RouteTable">
+          <ScalarProperty Name="StationSerialNumber" ColumnName="StationSerialNumber" />
+          <ScalarProperty Name="TravleCode" ColumnName="TravleCode" />
+          <ScalarProperty Name="StationCode" ColumnName="StationCode" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="StationTables">
+      <EntityTypeMapping TypeName="taxisModel.StationTable">
+        <MappingFragment StoreEntitySet="StationTable">
+          <ScalarProperty Name="StationName" ColumnName="StationName" />
+          <ScalarProperty Name="StationCode" ColumnName="StationCode" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TravleTables">
+      <EntityTypeMapping TypeName="taxisModel.TravleTable">
+        <MappingFragment StoreEntitySet="TravleTable">
+          <ScalarProperty Name="TravleDate" ColumnName="TravleDate" />
+          <ScalarProperty Name="LocationCode" ColumnName="LocationCode" />
+          <ScalarProperty Name="EmployeeCode" ColumnName="EmployeeCode" />
+          <ScalarProperty Name="TravleCode" ColumnName="TravleCode" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UsersTables">
+      <EntityTypeMapping TypeName="taxisModel.UsersTable">
+        <MappingFragment StoreEntitySet="UsersTable">
+          <ScalarProperty Name="UserPassword" ColumnName="UserPassword" />
+          <ScalarProperty Name="UserEmail" ColumnName="UserEmail" />
+          <ScalarProperty Name="UserPhoneNumber" ColumnName="UserPhoneNumber" />
+          <ScalarProperty Name="UserAdress" ColumnName="UserAdress" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="UserCode" ColumnName="UserCode" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RequestsForUsers">
+      <EntityTypeMapping TypeName="taxisModel.RequestsForUser">
+        <MappingFragment StoreEntitySet="RequestsForUser">
+          <ScalarProperty Name="RequestsCode" ColumnName="RequestsCode" />
+          <ScalarProperty Name="LocationCode" ColumnName="LocationCode" />
+          <ScalarProperty Name="UserCode" ColumnName="UserCode" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

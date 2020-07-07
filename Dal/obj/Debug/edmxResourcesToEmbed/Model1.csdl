@@ -1,0 +1,258 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="taxisModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="RequestsTable">
+    <Key>
+      <PropertyRef Name="RequestsCode" />
+    </Key>
+    <Property Name="RequestsCode" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="LocationCode" Type="Int32" />
+    <Property Name="RequestsDate" Type="DateTime" Precision="0" />
+    <Property Name="Dedicated" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="Frequency" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="LocationTable" Relationship="taxisModel.FK__RequestsT__Locat__38996AB5" FromRole="RequestsTable" ToRole="LocationTable" />
+    <NavigationProperty Name="RequestsForUsers" Relationship="taxisModel.FK__RequestsF__Reque__3C69FB99" FromRole="RequestsTable" ToRole="RequestsForUser" />
+  </EntityType>
+  <EntityContainer Name="taxisEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="RequestsTables" EntityType="Self.RequestsTable" />
+    <EntitySet Name="CarTables" EntityType="taxisModel.CarTable" />
+    <EntitySet Name="EmployeeTables" EntityType="taxisModel.EmployeeTable" />
+    <EntitySet Name="LocationTables" EntityType="taxisModel.LocationTable" />
+    <EntitySet Name="RouteTables" EntityType="taxisModel.RouteTable" />
+    <EntitySet Name="StationTables" EntityType="taxisModel.StationTable" />
+    <EntitySet Name="TravleTables" EntityType="taxisModel.TravleTable" />
+    <EntitySet Name="UsersTables" EntityType="taxisModel.UsersTable" />
+    <AssociationSet Name="FK__CarTable__Employ__30F848ED" Association="taxisModel.FK__CarTable__Employ__30F848ED">
+      <End Role="EmployeeTable" EntitySet="EmployeeTables" />
+      <End Role="CarTable" EntitySet="CarTables" />
+    </AssociationSet>
+    <AssociationSet Name="FK__TravleTab__Emplo__3F466844" Association="taxisModel.FK__TravleTab__Emplo__3F466844">
+      <End Role="EmployeeTable" EntitySet="EmployeeTables" />
+      <End Role="TravleTable" EntitySet="TravleTables" />
+    </AssociationSet>
+    <AssociationSet Name="FK__RequestsT__Locat__38996AB5" Association="taxisModel.FK__RequestsT__Locat__38996AB5">
+      <End Role="LocationTable" EntitySet="LocationTables" />
+      <End Role="RequestsTable" EntitySet="RequestsTables" />
+    </AssociationSet>
+    <AssociationSet Name="FK__TravleTab__Locat__403A8C7D" Association="taxisModel.FK__TravleTab__Locat__403A8C7D">
+      <End Role="LocationTable" EntitySet="LocationTables" />
+      <End Role="TravleTable" EntitySet="TravleTables" />
+    </AssociationSet>
+    <AssociationSet Name="FK__RouteTabl__Stati__440B1D61" Association="taxisModel.FK__RouteTabl__Stati__440B1D61">
+      <End Role="StationTable" EntitySet="StationTables" />
+      <End Role="RouteTable" EntitySet="RouteTables" />
+    </AssociationSet>
+    <AssociationSet Name="FK_RouteTable_TravleTable" Association="taxisModel.FK_RouteTable_TravleTable">
+      <End Role="TravleTable" EntitySet="TravleTables" />
+      <End Role="RouteTable" EntitySet="RouteTables" />
+    </AssociationSet>
+    <EntitySet Name="RequestsForUsers" EntityType="taxisModel.RequestsForUser" />
+    <AssociationSet Name="FK__RequestsF__Locat__3B75D760" Association="taxisModel.FK__RequestsF__Locat__3B75D760">
+      <End Role="LocationTable" EntitySet="LocationTables" />
+      <End Role="RequestsForUser" EntitySet="RequestsForUsers" />
+    </AssociationSet>
+    <AssociationSet Name="FK__RequestsF__Reque__3C69FB99" Association="taxisModel.FK__RequestsF__Reque__3C69FB99">
+      <End Role="RequestsTable" EntitySet="RequestsTables" />
+      <End Role="RequestsForUser" EntitySet="RequestsForUsers" />
+    </AssociationSet>
+    <AssociationSet Name="FK__RequestsF__UserC__3A81B327" Association="taxisModel.FK__RequestsF__UserC__3A81B327">
+      <End Role="UsersTable" EntitySet="UsersTables" />
+      <End Role="RequestsForUser" EntitySet="RequestsForUsers" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="CarTable">
+    <Key>
+      <PropertyRef Name="CarCode" />
+    </Key>
+    <Property Name="CarCode" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="EmployeeCode" Type="String" MaxLength="9" FixedLength="true" Unicode="false" />
+    <Property Name="Places" Type="Int32" Nullable="false" />
+    <Property Name="Dedicated" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="EmployeeTable" Relationship="taxisModel.FK__CarTable__Employ__30F848ED" FromRole="CarTable" ToRole="EmployeeTable" />
+  </EntityType>
+  <EntityType Name="EmployeeTable">
+    <Key>
+      <PropertyRef Name="EmployeeCode" />
+    </Key>
+    <Property Name="EmployeeCode" Type="String" Nullable="false" MaxLength="9" FixedLength="true" Unicode="false" />
+    <Property Name="EmployeeName" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="EmployeePassword" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="EmployeeAdress" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="EmployeePhoneNumber" Type="String" Nullable="false" MaxLength="10" FixedLength="true" Unicode="false" />
+    <Property Name="EmployeeEmail" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="CarTables" Relationship="taxisModel.FK__CarTable__Employ__30F848ED" FromRole="EmployeeTable" ToRole="CarTable" />
+    <NavigationProperty Name="TravleTables" Relationship="taxisModel.FK__TravleTab__Emplo__3F466844" FromRole="EmployeeTable" ToRole="TravleTable" />
+  </EntityType>
+  <EntityType Name="LocationTable">
+    <Key>
+      <PropertyRef Name="LocationCode" />
+    </Key>
+    <Property Name="LocationCode" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="LocationName" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="RequestsTables" Relationship="taxisModel.FK__RequestsT__Locat__38996AB5" FromRole="LocationTable" ToRole="RequestsTable" />
+    <NavigationProperty Name="TravleTables" Relationship="taxisModel.FK__TravleTab__Locat__403A8C7D" FromRole="LocationTable" ToRole="TravleTable" />
+    <NavigationProperty Name="RequestsForUsers" Relationship="taxisModel.FK__RequestsF__Locat__3B75D760" FromRole="LocationTable" ToRole="RequestsForUser" />
+  </EntityType>
+  <EntityType Name="RouteTable">
+    <Key>
+      <PropertyRef Name="StationCode" />
+      <PropertyRef Name="TravleCode" />
+    </Key>
+    <Property Name="StationCode" Type="Int32" Nullable="false" />
+    <Property Name="TravleCode" Type="Int32" Nullable="false" />
+    <Property Name="StationSerialNumber" Type="Int32" />
+    <NavigationProperty Name="StationTable" Relationship="taxisModel.FK__RouteTabl__Stati__440B1D61" FromRole="RouteTable" ToRole="StationTable" />
+    <NavigationProperty Name="TravleTable" Relationship="taxisModel.FK_RouteTable_TravleTable" FromRole="RouteTable" ToRole="TravleTable" />
+  </EntityType>
+  <EntityType Name="StationTable">
+    <Key>
+      <PropertyRef Name="StationCode" />
+    </Key>
+    <Property Name="StationCode" Type="Int32" Nullable="false" />
+    <Property Name="StationName" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="RouteTables" Relationship="taxisModel.FK__RouteTabl__Stati__440B1D61" FromRole="StationTable" ToRole="RouteTable" />
+  </EntityType>
+  <EntityType Name="TravleTable">
+    <Key>
+      <PropertyRef Name="TravleCode" />
+    </Key>
+    <Property Name="TravleCode" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="EmployeeCode" Type="String" Nullable="false" MaxLength="9" FixedLength="true" Unicode="false" />
+    <Property Name="LocationCode" Type="Int32" />
+    <Property Name="TravleDate" Type="DateTime" Precision="0" />
+    <NavigationProperty Name="EmployeeTable" Relationship="taxisModel.FK__TravleTab__Emplo__3F466844" FromRole="TravleTable" ToRole="EmployeeTable" />
+    <NavigationProperty Name="LocationTable" Relationship="taxisModel.FK__TravleTab__Locat__403A8C7D" FromRole="TravleTable" ToRole="LocationTable" />
+    <NavigationProperty Name="RouteTables" Relationship="taxisModel.FK_RouteTable_TravleTable" FromRole="TravleTable" ToRole="RouteTable" />
+  </EntityType>
+  <EntityType Name="UsersTable">
+    <Key>
+      <PropertyRef Name="UserCode" />
+    </Key>
+    <Property Name="UserCode" Type="String" Nullable="false" MaxLength="9" FixedLength="true" Unicode="false" />
+    <Property Name="UserName" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="UserAdress" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="UserPhoneNumber" Type="String" Nullable="false" MaxLength="10" FixedLength="true" Unicode="false" />
+    <Property Name="UserEmail" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="UserPassword" Type="String" Nullable="false" MaxLength="15" FixedLength="true" Unicode="true" />
+    <NavigationProperty Name="RequestsForUsers" Relationship="taxisModel.FK__RequestsF__UserC__3A81B327" FromRole="UsersTable" ToRole="RequestsForUser" />
+  </EntityType>
+  <Association Name="FK__CarTable__Employ__30F848ED">
+    <End Type="taxisModel.EmployeeTable" Role="EmployeeTable" Multiplicity="0..1" />
+    <End Type="taxisModel.CarTable" Role="CarTable" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="EmployeeTable">
+        <PropertyRef Name="EmployeeCode" />
+      </Principal>
+      <Dependent Role="CarTable">
+        <PropertyRef Name="EmployeeCode" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__TravleTab__Emplo__3F466844">
+    <End Type="taxisModel.EmployeeTable" Role="EmployeeTable" Multiplicity="1" />
+    <End Type="taxisModel.TravleTable" Role="TravleTable" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="EmployeeTable">
+        <PropertyRef Name="EmployeeCode" />
+      </Principal>
+      <Dependent Role="TravleTable">
+        <PropertyRef Name="EmployeeCode" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__RequestsT__Locat__38996AB5">
+    <End Type="taxisModel.LocationTable" Role="LocationTable" Multiplicity="0..1" />
+    <End Type="taxisModel.RequestsTable" Role="RequestsTable" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="LocationTable">
+        <PropertyRef Name="LocationCode" />
+      </Principal>
+      <Dependent Role="RequestsTable">
+        <PropertyRef Name="LocationCode" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__TravleTab__Locat__403A8C7D">
+    <End Type="taxisModel.LocationTable" Role="LocationTable" Multiplicity="0..1" />
+    <End Type="taxisModel.TravleTable" Role="TravleTable" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="LocationTable">
+        <PropertyRef Name="LocationCode" />
+      </Principal>
+      <Dependent Role="TravleTable">
+        <PropertyRef Name="LocationCode" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__RouteTabl__Stati__440B1D61">
+    <End Type="taxisModel.StationTable" Role="StationTable" Multiplicity="1" />
+    <End Type="taxisModel.RouteTable" Role="RouteTable" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="StationTable">
+        <PropertyRef Name="StationCode" />
+      </Principal>
+      <Dependent Role="RouteTable">
+        <PropertyRef Name="StationCode" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_RouteTable_TravleTable">
+    <End Type="taxisModel.TravleTable" Role="TravleTable" Multiplicity="1" />
+    <End Type="taxisModel.RouteTable" Role="RouteTable" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TravleTable">
+        <PropertyRef Name="TravleCode" />
+      </Principal>
+      <Dependent Role="RouteTable">
+        <PropertyRef Name="TravleCode" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="RequestsForUser">
+    <Key>
+      <PropertyRef Name="UserCode" />
+      <PropertyRef Name="RequestsCode" />
+    </Key>
+    <Property Name="UserCode" Type="String" Nullable="false" MaxLength="9" FixedLength="true" Unicode="false" />
+    <Property Name="LocationCode" Type="Int32" />
+    <Property Name="RequestsCode" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="LocationTable" Relationship="taxisModel.FK__RequestsF__Locat__3B75D760" FromRole="RequestsForUser" ToRole="LocationTable" />
+    <NavigationProperty Name="RequestsTable" Relationship="taxisModel.FK__RequestsF__Reque__3C69FB99" FromRole="RequestsForUser" ToRole="RequestsTable" />
+    <NavigationProperty Name="UsersTable" Relationship="taxisModel.FK__RequestsF__UserC__3A81B327" FromRole="RequestsForUser" ToRole="UsersTable" />
+  </EntityType>
+  <Association Name="FK__RequestsF__Locat__3B75D760">
+    <End Type="taxisModel.LocationTable" Role="LocationTable" Multiplicity="0..1" />
+    <End Type="taxisModel.RequestsForUser" Role="RequestsForUser" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="LocationTable">
+        <PropertyRef Name="LocationCode" />
+      </Principal>
+      <Dependent Role="RequestsForUser">
+        <PropertyRef Name="LocationCode" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__RequestsF__Reque__3C69FB99">
+    <End Type="taxisModel.RequestsTable" Role="RequestsTable" Multiplicity="1" />
+    <End Type="taxisModel.RequestsForUser" Role="RequestsForUser" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="RequestsTable">
+        <PropertyRef Name="RequestsCode" />
+      </Principal>
+      <Dependent Role="RequestsForUser">
+        <PropertyRef Name="RequestsCode" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__RequestsF__UserC__3A81B327">
+    <End Type="taxisModel.UsersTable" Role="UsersTable" Multiplicity="1" />
+    <End Type="taxisModel.RequestsForUser" Role="RequestsForUser" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UsersTable">
+        <PropertyRef Name="UserCode" />
+      </Principal>
+      <Dependent Role="RequestsForUser">
+        <PropertyRef Name="UserCode" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>
