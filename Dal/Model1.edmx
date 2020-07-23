@@ -67,6 +67,15 @@
           <Property Name="StationCode" Type="int" Nullable="false" />
           <Property Name="StationName" Type="varchar" MaxLength="20" />
         </EntityType>
+        <EntityType Name="travel_discription_u">
+          <Key>
+            <PropertyRef Name="id_travel_discription" />
+          </Key>
+          <Property Name="id_travel_discription" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="id_response_a" Type="int" />
+          <Property Name="usercode" Type="char" MaxLength="9" Nullable="false" />
+          <Property Name="requestsCode" Type="int" Nullable="false" />
+        </EntityType>
         <EntityType Name="TravleTable">
           <Key>
             <PropertyRef Name="TravleCode" />
@@ -87,7 +96,7 @@
           <Property Name="UserEmail" Type="varchar" MaxLength="30" />
           <Property Name="UserPassword" Type="nchar" MaxLength="15" Nullable="false" />
         </EntityType>
-        <Association Name="FK__CarTable__Employ__30F848ED">
+        <Association Name="FK__CarTable__Employ__34C8D9D1">
           <End Role="EmployeeTable" Type="Self.EmployeeTable" Multiplicity="0..1" />
           <End Role="CarTable" Type="Self.CarTable" Multiplicity="*" />
           <ReferentialConstraint>
@@ -159,6 +168,42 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK__travel_di__id_re__5812160E">
+          <End Role="travel_discription_u" Type="Self.travel_discription_u" Multiplicity="0..1" />
+          <End Role="travel_discription_u1" Type="Self.travel_discription_u" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="travel_discription_u">
+              <PropertyRef Name="id_travel_discription" />
+            </Principal>
+            <Dependent Role="travel_discription_u1">
+              <PropertyRef Name="id_response_a" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__travel_di__reque__59FA5E80">
+          <End Role="RequestsTable" Type="Self.RequestsTable" Multiplicity="1" />
+          <End Role="travel_discription_u" Type="Self.travel_discription_u" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RequestsTable">
+              <PropertyRef Name="RequestsCode" />
+            </Principal>
+            <Dependent Role="travel_discription_u">
+              <PropertyRef Name="requestsCode" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__travel_di__userc__59063A47">
+          <End Role="UsersTable" Type="Self.UsersTable" Multiplicity="1" />
+          <End Role="travel_discription_u" Type="Self.travel_discription_u" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UsersTable">
+              <PropertyRef Name="UserCode" />
+            </Principal>
+            <Dependent Role="travel_discription_u">
+              <PropertyRef Name="usercode" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK__TravleTab__Emplo__3F466844">
           <End Role="EmployeeTable" Type="Self.EmployeeTable" Multiplicity="1" />
           <End Role="TravleTable" Type="Self.TravleTable" Multiplicity="*" />
@@ -203,9 +248,10 @@
           <EntitySet Name="RequestsTable" EntityType="Self.RequestsTable" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="RouteTable" EntityType="Self.RouteTable" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="StationTable" EntityType="Self.StationTable" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="travel_discription_u" EntityType="Self.travel_discription_u" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TravleTable" EntityType="Self.TravleTable" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="UsersTable" EntityType="Self.UsersTable" Schema="dbo" store:Type="Tables" />
-          <AssociationSet Name="FK__CarTable__Employ__30F848ED" Association="Self.FK__CarTable__Employ__30F848ED">
+          <AssociationSet Name="FK__CarTable__Employ__34C8D9D1" Association="Self.FK__CarTable__Employ__34C8D9D1">
             <End Role="EmployeeTable" EntitySet="EmployeeTable" />
             <End Role="CarTable" EntitySet="CarTable" />
           </AssociationSet>
@@ -228,6 +274,18 @@
           <AssociationSet Name="FK__RouteTabl__Stati__440B1D61" Association="Self.FK__RouteTabl__Stati__440B1D61">
             <End Role="StationTable" EntitySet="StationTable" />
             <End Role="RouteTable" EntitySet="RouteTable" />
+          </AssociationSet>
+          <AssociationSet Name="FK__travel_di__id_re__5812160E" Association="Self.FK__travel_di__id_re__5812160E">
+            <End Role="travel_discription_u" EntitySet="travel_discription_u" />
+            <End Role="travel_discription_u1" EntitySet="travel_discription_u" />
+          </AssociationSet>
+          <AssociationSet Name="FK__travel_di__reque__59FA5E80" Association="Self.FK__travel_di__reque__59FA5E80">
+            <End Role="RequestsTable" EntitySet="RequestsTable" />
+            <End Role="travel_discription_u" EntitySet="travel_discription_u" />
+          </AssociationSet>
+          <AssociationSet Name="FK__travel_di__userc__59063A47" Association="Self.FK__travel_di__userc__59063A47">
+            <End Role="UsersTable" EntitySet="UsersTable" />
+            <End Role="travel_discription_u" EntitySet="travel_discription_u" />
           </AssociationSet>
           <AssociationSet Name="FK__TravleTab__Emplo__3F466844" Association="Self.FK__TravleTab__Emplo__3F466844">
             <End Role="EmployeeTable" EntitySet="EmployeeTable" />
@@ -257,6 +315,7 @@
           <Property Name="Frequency" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="LocationTable" Relationship="taxisModel.FK__RequestsT__Locat__38996AB5" FromRole="RequestsTable" ToRole="LocationTable" />
           <NavigationProperty Name="RequestsForUsers" Relationship="taxisModel.FK__RequestsF__Reque__3C69FB99" FromRole="RequestsTable" ToRole="RequestsForUser" />
+          <NavigationProperty Name="travel_discription_u" Relationship="taxisModel.FK__travel_di__reque__59FA5E80" FromRole="RequestsTable" ToRole="travel_discription_u" />
         </EntityType>
         <EntityContainer Name="taxisEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="RequestsTables" EntityType="Self.RequestsTable" />
@@ -303,6 +362,19 @@
           <AssociationSet Name="FK__RequestsF__UserC__3A81B327" Association="taxisModel.FK__RequestsF__UserC__3A81B327">
             <End Role="UsersTable" EntitySet="UsersTables" />
             <End Role="RequestsForUser" EntitySet="RequestsForUsers" />
+          </AssociationSet>
+          <EntitySet Name="travel_discription_u" EntityType="taxisModel.travel_discription_u" />
+          <AssociationSet Name="FK__travel_di__reque__59FA5E80" Association="taxisModel.FK__travel_di__reque__59FA5E80">
+            <End Role="RequestsTable" EntitySet="RequestsTables" />
+            <End Role="travel_discription_u" EntitySet="travel_discription_u" />
+          </AssociationSet>
+          <AssociationSet Name="FK__travel_di__id_re__5812160E" Association="taxisModel.FK__travel_di__id_re__5812160E">
+            <End Role="travel_discription_u" EntitySet="travel_discription_u" />
+            <End Role="travel_discription_u1" EntitySet="travel_discription_u" />
+          </AssociationSet>
+          <AssociationSet Name="FK__travel_di__userc__59063A47" Association="taxisModel.FK__travel_di__userc__59063A47">
+            <End Role="UsersTable" EntitySet="UsersTables" />
+            <End Role="travel_discription_u" EntitySet="travel_discription_u" />
           </AssociationSet>
           </EntityContainer>
         <EntityType Name="CarTable">
@@ -380,6 +452,7 @@
           <Property Name="UserEmail" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
           <Property Name="UserPassword" Type="String" Nullable="false" MaxLength="15" FixedLength="true" Unicode="true" />
           <NavigationProperty Name="RequestsForUsers" Relationship="taxisModel.FK__RequestsF__UserC__3A81B327" FromRole="UsersTable" ToRole="RequestsForUser" />
+          <NavigationProperty Name="travel_discription_u" Relationship="taxisModel.FK__travel_di__userc__59063A47" FromRole="UsersTable" ToRole="travel_discription_u" />
         </EntityType>
         <Association Name="FK__CarTable__Employ__30F848ED">
           <End Type="taxisModel.EmployeeTable" Role="EmployeeTable" Multiplicity="0..1" />
@@ -501,6 +574,55 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="travel_discription_u">
+          <Key>
+            <PropertyRef Name="id_travel_discription" />
+          </Key>
+          <Property Name="id_travel_discription" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="id_response_a" Type="Int32" />
+          <Property Name="usercode" Type="String" Nullable="false" MaxLength="9" FixedLength="true" Unicode="false" />
+          <Property Name="requestsCode" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="RequestsTable" Relationship="taxisModel.FK__travel_di__reque__59FA5E80" FromRole="travel_discription_u" ToRole="RequestsTable" />
+          <NavigationProperty Name="travel_discription_u1" Relationship="taxisModel.FK__travel_di__id_re__5812160E" FromRole="travel_discription_u" ToRole="travel_discription_u1" />
+          <NavigationProperty Name="travel_discription_u2" Relationship="taxisModel.FK__travel_di__id_re__5812160E" FromRole="travel_discription_u1" ToRole="travel_discription_u" />
+          <NavigationProperty Name="UsersTable" Relationship="taxisModel.FK__travel_di__userc__59063A47" FromRole="travel_discription_u" ToRole="UsersTable" />
+        </EntityType>
+        <Association Name="FK__travel_di__reque__59FA5E80">
+          <End Type="taxisModel.RequestsTable" Role="RequestsTable" Multiplicity="1" />
+          <End Type="taxisModel.travel_discription_u" Role="travel_discription_u" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RequestsTable">
+              <PropertyRef Name="RequestsCode" />
+            </Principal>
+            <Dependent Role="travel_discription_u">
+              <PropertyRef Name="requestsCode" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__travel_di__id_re__5812160E">
+          <End Type="taxisModel.travel_discription_u" Role="travel_discription_u" Multiplicity="0..1" />
+          <End Type="taxisModel.travel_discription_u" Role="travel_discription_u1" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="travel_discription_u">
+              <PropertyRef Name="id_travel_discription" />
+            </Principal>
+            <Dependent Role="travel_discription_u1">
+              <PropertyRef Name="id_response_a" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__travel_di__userc__59063A47">
+          <End Type="taxisModel.UsersTable" Role="UsersTable" Multiplicity="1" />
+          <End Type="taxisModel.travel_discription_u" Role="travel_discription_u" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UsersTable">
+              <PropertyRef Name="UserCode" />
+            </Principal>
+            <Dependent Role="travel_discription_u">
+              <PropertyRef Name="usercode" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -593,6 +715,16 @@
                 <ScalarProperty Name="RequestsCode" ColumnName="RequestsCode" />
                 <ScalarProperty Name="LocationCode" ColumnName="LocationCode" />
                 <ScalarProperty Name="UserCode" ColumnName="UserCode" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="travel_discription_u">
+            <EntityTypeMapping TypeName="taxisModel.travel_discription_u">
+              <MappingFragment StoreEntitySet="travel_discription_u">
+                <ScalarProperty Name="requestsCode" ColumnName="requestsCode" />
+                <ScalarProperty Name="usercode" ColumnName="usercode" />
+                <ScalarProperty Name="id_response_a" ColumnName="id_response_a" />
+                <ScalarProperty Name="id_travel_discription" ColumnName="id_travel_discription" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

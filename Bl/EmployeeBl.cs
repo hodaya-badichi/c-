@@ -15,10 +15,18 @@ namespace Bl
             if (e != null)
             {
                 EmployeeDto emp = new EmployeeDto(e);
+
                 return emp;
             }
 
             return null;
+        }
+        public static bool AddNew(EmployeeDto emp)
+        {           
+            EmployeeTable e = EmployeeDto.ToDal(emp);
+            bool b = Dal.EmployeeDal.AddNew(e);
+            return b;
+
         }
     }
 }

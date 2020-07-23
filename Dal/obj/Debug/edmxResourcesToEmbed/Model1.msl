@@ -90,5 +90,15 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="travel_discription_u">
+      <EntityTypeMapping TypeName="taxisModel.travel_discription_u">
+        <MappingFragment StoreEntitySet="travel_discription_u">
+          <ScalarProperty Name="requestsCode" ColumnName="requestsCode" />
+          <ScalarProperty Name="usercode" ColumnName="usercode" />
+          <ScalarProperty Name="id_response_a" ColumnName="id_response_a" />
+          <ScalarProperty Name="id_travel_discription" ColumnName="id_travel_discription" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping>

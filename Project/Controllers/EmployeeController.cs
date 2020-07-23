@@ -5,11 +5,11 @@ using System.Net;
 using System.Net.Http;
 using System.Web.Http;
 using System.Web.Http.Cors;
-
+using Dto;
 namespace Project.Controllers
 {
     [RoutePrefix("api/Employee")]
-   [EnableCors(origins: "*", headers: "*", methods: "*")]
+   [EnableCors(origins: "http://localhost:8100", headers: "*", methods: "*")]
     public class EmployeeController : ApiController
     {
         [HttpGet]
@@ -18,5 +18,16 @@ namespace Project.Controllers
         {
             return Ok(Bl.EmployeeBl.Login(id, ps));
         }
+
+        [HttpPost]
+       [Route("AddNew")]
+        public IHttpActionResult AddNew([FromUri] EmployeeDto emp)
+        {
+            if( Bl.EmployeeBl.AddNew(emp))
+                return Ok();
+            else
+                return BadRequest();
+        }
+
     }
 }

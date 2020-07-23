@@ -27,5 +27,39 @@ namespace Dal
             }
 
         }
+
+        public static bool Exist(string id)
+        {
+            try
+            {
+                using (taxisEntities db = new taxisEntities())
+                {
+                    EmployeeTable es = db.EmployeeTables.Where(e => e.EmployeeCode == id).FirstOrDefault();
+                    return es != null;                    
+                }
+            }
+            catch (Exception e)
+            {
+                return false;
+            }
+
+        }
+        public static bool AddNew(EmployeeTable emp)
+        {
+            try
+            {
+                using (taxisEntities db = new taxisEntities())
+                {
+
+                    db.EmployeeTables.Add(emp);
+                    db.SaveChanges();
+                    return true;
+                }
+            }
+            catch (Exception e)
+            {
+                return false;
+            }
+        }
     }
 }

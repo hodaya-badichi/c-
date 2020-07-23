@@ -12,25 +12,23 @@ namespace Dal
     using System;
     using System.Collections.Generic;
     
-    public partial class UsersTable
+    public partial class travel_discription_u
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public UsersTable()
+        public travel_discription_u()
         {
-            this.RequestsForUsers = new HashSet<RequestsForUser>();
-            this.travel_discription_u = new HashSet<travel_discription_u>();
+            this.travel_discription_u1 = new HashSet<travel_discription_u>();
         }
     
-        public string UserCode { get; set; }
-        public string UserName { get; set; }
-        public string UserAdress { get; set; }
-        public string UserPhoneNumber { get; set; }
-        public string UserEmail { get; set; }
-        public string UserPassword { get; set; }
+        public int id_travel_discription { get; set; }
+        public Nullable<int> id_response_a { get; set; }
+        public string usercode { get; set; }
+        public int requestsCode { get; set; }
     
+        public virtual RequestsTable RequestsTable { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<RequestsForUser> RequestsForUsers { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<travel_discription_u> travel_discription_u { get; set; }
+        public virtual ICollection<travel_discription_u> travel_discription_u1 { get; set; }
+        public virtual travel_discription_u travel_discription_u2 { get; set; }
+        public virtual UsersTable UsersTable { get; set; }
     }
 }

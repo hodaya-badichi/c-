@@ -18,6 +18,7 @@ namespace Dal
         public RequestsTable()
         {
             this.RequestsForUsers = new HashSet<RequestsForUser>();
+            this.travel_discription_u = new HashSet<travel_discription_u>();
         }
     
         public int RequestsCode { get; set; }
@@ -29,5 +30,7 @@ namespace Dal
         public virtual LocationTable LocationTable { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<RequestsForUser> RequestsForUsers { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<travel_discription_u> travel_discription_u { get; set; }
     }
 }

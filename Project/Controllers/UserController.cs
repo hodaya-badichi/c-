@@ -6,6 +6,7 @@ using System.Net.Http;
 using System.Web.Http;
 using System.Web.Http.Cors;
 using Dto;
+
 namespace Project.Controllers
 {
     [RoutePrefix("api/Users")]
@@ -18,6 +19,12 @@ namespace Project.Controllers
         public IHttpActionResult Login([FromUri] string id, [FromUri]string password)
         {
             return Ok(Bl.UserBl.Login(id, password));
+        }
+        [HttpPut]
+        [Route("register/{user}")]
+        public bool AddNew([FromUri] UserDto user)
+        {
+           return Bl.UserBl.AddNew(user);
         }
     }
 }

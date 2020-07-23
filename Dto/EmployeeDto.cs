@@ -23,7 +23,7 @@ namespace Dto
             this.EmployeePhoneNumber = employee.EmployeePhoneNumber;
             this.EmployeeEmail = employee.EmployeeEmail;
         }
-        public Dal.EmployeeTable ToDal(Dto.EmployeeDto employee)
+        public static Dal.EmployeeTable ToDal(Dto.EmployeeDto employee)
         {
             return new Dal.EmployeeTable
             {

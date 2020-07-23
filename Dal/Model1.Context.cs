@@ -34,5 +34,6 @@ namespace Dal
         public virtual DbSet<TravleTable> TravleTables { get; set; }
         public virtual DbSet<UsersTable> UsersTables { get; set; }
         public virtual DbSet<RequestsForUser> RequestsForUsers { get; set; }
+        public virtual DbSet<travel_discription_u> travel_discription_u { get; set; }
     }
 }

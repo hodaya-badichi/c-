@@ -17,12 +17,11 @@ namespace Bl
             return null;
         }
         public static bool AddNew(UserDto u)
-        {
-            // UserDto u = new UserDto(UserCode, UserName, UserAdress, UserPhoneNumber, UserEmail, UserPassword);
+        {          
             UsersTable user = UserDto.ToDal(u);
             bool b=  Dal.UserDal.AddNew(user);
             return b;
-    
+  
         }
 
     }

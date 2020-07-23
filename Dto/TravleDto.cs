@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Dto
 {
-    class TravleDto
+   public class TravleDto
     {
         public int TravleCode { get; set; }
         public string EmployeeCode { get; set; }

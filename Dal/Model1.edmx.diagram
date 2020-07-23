@@ -5,24 +5,28 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="69a80d02b2e6452691c0a5fcb253d81d" Name="Diagram1">
-        <EntityTypeShape EntityType="taxisModel.CarTable" Width="1.5" PointX="10.125" PointY="1.125" />
-        <EntityTypeShape EntityType="taxisModel.EmployeeTable" Width="1.5" PointX="6.125" PointY="3.125" />
+        <EntityTypeShape EntityType="taxisModel.CarTable" Width="1.5" PointX="3" PointY="18.75" />
+        <EntityTypeShape EntityType="taxisModel.EmployeeTable" Width="1.5" PointX="0.75" PointY="0.75" />
         <AssociationConnector Association="taxisModel.FK__CarTable__Employ__30F848ED" />
-        <EntityTypeShape EntityType="taxisModel.LocationTable" Width="1.5" PointX="3.375" PointY="4.5" />
-        <EntityTypeShape EntityType="taxisModel.RequestsForUser" Width="1.5" PointX="3.75" PointY="1.125" />
+        <EntityTypeShape EntityType="taxisModel.LocationTable" Width="1.5" PointX="0.75" PointY="5" />
+        <EntityTypeShape EntityType="taxisModel.RequestsForUser" Width="1.5" PointX="5.25" PointY="8" />
         <AssociationConnector Association="taxisModel.FK__RequestsF__Locat__3B75D760" />
-        <EntityTypeShape EntityType="taxisModel.RequestsTable" Width="1.5" PointX="0.5" PointY="4.125" />
+        <EntityTypeShape EntityType="taxisModel.RequestsTable" Width="1.5" PointX="3" PointY="10.875" />
         <AssociationConnector Association="taxisModel.FK__RequestsT__Locat__38996AB5" />
         <AssociationConnector Association="taxisModel.FK__RequestsF__Reque__3C69FB99" />
-        <EntityTypeShape EntityType="taxisModel.RouteTable" Width="1.5" PointX="1.75" PointY="1.25" />
-        <EntityTypeShape EntityType="taxisModel.StationTable" Width="1.5" PointX="5.875" PointY="0.5" />
+        <EntityTypeShape EntityType="taxisModel.RouteTable" Width="1.5" PointX="5.25" PointY="5" />
+        <EntityTypeShape EntityType="taxisModel.StationTable" Width="1.5" PointX="3" PointY="2.25" />
         <AssociationConnector Association="taxisModel.FK__RouteTabl__Stati__440B1D61" />
-        <EntityTypeShape EntityType="taxisModel.TravleTable" Width="1.5" PointX="10.25" PointY="3.75" />
+        <EntityTypeShape EntityType="taxisModel.TravleTable" Width="1.5" PointX="3" PointY="4.875" />
         <AssociationConnector Association="taxisModel.FK__TravleTab__Emplo__3F466844" />
         <AssociationConnector Association="taxisModel.FK__TravleTab__Locat__403A8C7D" />
         <AssociationConnector Association="taxisModel.FK_RouteTable_TravleTable" />
-        <EntityTypeShape EntityType="taxisModel.UsersTable" Width="1.5" PointX="8.125" PointY="4.25" />
+        <EntityTypeShape EntityType="taxisModel.UsersTable" Width="1.5" PointX="3" PointY="15" />
         <AssociationConnector Association="taxisModel.FK__RequestsF__UserC__3A81B327" />
+        <EntityTypeShape EntityType="taxisModel.travel_discription_u" Width="2.5" PointX="6.5" PointY="13.625" />
+        <AssociationConnector Association="taxisModel.FK__travel_di__reque__59FA5E80" />
+        <AssociationConnector Association="taxisModel.FK__travel_di__id_re__5812160E" />
+        <AssociationConnector Association="taxisModel.FK__travel_di__userc__59063A47" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
