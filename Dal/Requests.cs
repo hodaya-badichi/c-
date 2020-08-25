@@ -12,18 +12,26 @@ namespace Dal
     using System;
     using System.Collections.Generic;
     
-    public partial class StationTable
+    public partial class Requests
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public StationTable()
+        public Requests()
         {
-            this.RouteTables = new HashSet<RouteTable>();
+            this.Comments = new HashSet<Comments>();
         }
     
-        public int StationCode { get; set; }
-        public string StationName { get; set; }
+        public int RequestCode { get; set; }
+        public string UserId { get; set; }
+        public Nullable<int> TravelCode { get; set; }
+        public string SourceAddress { get; set; }
+        public string DestinationAddress { get; set; }
+        public System.DateTime Date { get; set; }
+        public string Frequency { get; set; }
+        public string Summarry { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<RouteTable> RouteTables { get; set; }
+        public virtual ICollection<Comments> Comments { get; set; }
+        public virtual Travels Travels { get; set; }
+        public virtual Users Users { get; set; }
     }
 }

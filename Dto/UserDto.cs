@@ -8,32 +8,39 @@ namespace Dto
 {
    public class UserDto
     {
-        public string UserCode { get; set; }
-        public string UserName { get; set; }
-        public string UserAdress { get; set; }
-        public string UserPhoneNumber { get; set; }
-        public string UserEmail { get; set; }
-        public string UserPassword { get; set; }
 
-        public UserDto(Dal.UsersTable user)
+        public string UserId { get; set; }
+        public string UserFirstName { get; set; }
+        public string UserLastName { get; set; }
+        public string UserPhone { get; set; }
+        public string UserMail { get; set; }
+        public string UserPassword { get; set; }
+        public bool IsDriver { get; set; }
+        public UserDto()
         {
-            this.UserCode = user.UserCode;
-            this.UserAdress = user.UserAdress;
-            this.UserEmail = user.UserEmail;
-            this.UserName = user.UserName;
+
+        }  
+        public UserDto(Dal.Users user)
+        {
+            this.UserId = user.UserId;            
+            this.UserMail = user.UserMail;
+            this.UserFirstName = user.UserFirstName;
+            this.UserLastName = UserLastName;
             this.UserPassword = user.UserPassword;
-            this.UserPhoneNumber = user.UserPhoneNumber;
+            this.UserPhone = user.UserPhone;
+            this.IsDriver = user.IsDriver;
         }
-        public static Dal.UsersTable  ToDal(Dto.UserDto user)
+        public static Dal.Users  ToDal(Dto.UserDto user)
         {
-            Dal.UsersTable u = new Dal.UsersTable
+            Dal.Users u = new Dal.Users
             {
-                UserAdress = user.UserAdress,
-                UserCode = user.UserCode,
-                UserPhoneNumber = user.UserPhoneNumber,
+                UserId = user.UserId,
+                UserFirstName = user.UserFirstName,
+                UserLastName = user.UserLastName,
+                UserMail = user.UserMail,
                 UserPassword = user.UserPassword,
-                UserName=user.UserName,
-                UserEmail=user.UserEmail
+                UserPhone = user.UserPhone,
+                IsDriver = user.IsDriver
                
             };
             return u;

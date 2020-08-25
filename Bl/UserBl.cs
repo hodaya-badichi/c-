@@ -7,7 +7,7 @@ namespace Bl
     {
         public static UserDto Login(string id, string password)
         {
-            UsersTable u = Dal.UserDal.Login(id, password);
+            Users u = Dal.UserDal.Login(id, password);
             if (u != null)
             {
                 UserDto user = new UserDto(u);
@@ -16,13 +16,12 @@ namespace Bl
 
             return null;
         }
-        public static bool AddNew(UserDto u)
-        {
-            // UserDto u = new UserDto(UserCode, UserName, UserAdress, UserPhoneNumber, UserEmail, UserPassword);
-            UsersTable user = UserDto.ToDal(u);
-            bool b=  Dal.UserDal.AddNew(user);
+        public static bool Register(UserDto u)
+        {          
+            Users user = UserDto.ToDal(u);
+            bool b=  Dal.UserDal.Register(user);
             return b;
-    
+  
         }
 
     }

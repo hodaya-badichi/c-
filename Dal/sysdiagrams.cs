@@ -12,14 +12,12 @@ namespace Dal
     using System;
     using System.Collections.Generic;
     
-    public partial class RequestsForUser
+    public partial class sysdiagrams
     {
-        public string UserCode { get; set; }
-        public Nullable<int> LocationCode { get; set; }
-        public int RequestsCode { get; set; }
-    
-        public virtual LocationTable LocationTable { get; set; }
-        public virtual RequestsTable RequestsTable { get; set; }
-        public virtual UsersTable UsersTable { get; set; }
+        public string name { get; set; }
+        public int principal_id { get; set; }
+        public int diagram_id { get; set; }
+        public Nullable<int> version { get; set; }
+        public byte[] definition { get; set; }
     }
 }

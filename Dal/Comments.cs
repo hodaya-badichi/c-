@@ -12,13 +12,15 @@ namespace Dal
     using System;
     using System.Collections.Generic;
     
-    public partial class RouteTable
+    public partial class Comments
     {
-        public int StationCode { get; set; }
-        public int TravleCode { get; set; }
-        public Nullable<int> StationSerialNumber { get; set; }
+        public int CommentId { get; set; }
+        public string UserId { get; set; }
+        public int RequestCode { get; set; }
+        public string Summarry { get; set; }
+        public System.DateTime Date { get; set; }
     
-        public virtual StationTable StationTable { get; set; }
-        public virtual TravleTable TravleTable { get; set; }
+        public virtual Requests Requests { get; set; }
+        public virtual Users Users { get; set; }
     }
 }

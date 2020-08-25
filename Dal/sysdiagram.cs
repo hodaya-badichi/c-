@@ -12,13 +12,12 @@ namespace Dal
     using System;
     using System.Collections.Generic;
     
-    public partial class CarTable
+    public partial class sysdiagram
     {
-        public int CarCode { get; set; }
-        public string EmployeeCode { get; set; }
-        public int Places { get; set; }
-        public string Dedicated { get; set; }
-    
-        public virtual EmployeeTable EmployeeTable { get; set; }
+        public string name { get; set; }
+        public int principal_id { get; set; }
+        public int diagram_id { get; set; }
+        public Nullable<int> version { get; set; }
+        public byte[] definition { get; set; }
     }
 }

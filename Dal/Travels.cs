@@ -12,22 +12,23 @@ namespace Dal
     using System;
     using System.Collections.Generic;
     
-    public partial class UsersTable
+    public partial class Travels
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public UsersTable()
+        public Travels()
         {
-            this.RequestsForUsers = new HashSet<RequestsForUser>();
+            this.Requests = new HashSet<Requests>();
         }
     
-        public string UserCode { get; set; }
-        public string UserName { get; set; }
-        public string UserAdress { get; set; }
-        public string UserPhoneNumber { get; set; }
-        public string UserEmail { get; set; }
-        public string UserPassword { get; set; }
+        public int TravleCode { get; set; }
+        public string UserId { get; set; }
+        public System.DateTime Date { get; set; }
+        public string SourceAddress { get; set; }
+        public string DestinationAddress { get; set; }
+        public int NumOfPassengers { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<RequestsForUser> RequestsForUsers { get; set; }
+        public virtual ICollection<Requests> Requests { get; set; }
+        public virtual Users Users { get; set; }
     }
 }

@@ -12,25 +12,29 @@ namespace Dal
     using System;
     using System.Collections.Generic;
     
-    public partial class EmployeeTable
+    public partial class Users
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public EmployeeTable()
+        public Users()
         {
-            this.CarTables = new HashSet<CarTable>();
-            this.TravleTables = new HashSet<TravleTable>();
+            this.Comments = new HashSet<Comments>();
+            this.Requests = new HashSet<Requests>();
+            this.Travels = new HashSet<Travels>();
         }
     
-        public string EmployeeCode { get; set; }
-        public string EmployeeName { get; set; }
-        public string EmployeePassword { get; set; }
-        public string EmployeeAdress { get; set; }
-        public string EmployeePhoneNumber { get; set; }
-        public string EmployeeEmail { get; set; }
+        public string UserId { get; set; }
+        public string UserFirstName { get; set; }
+        public string UserLastName { get; set; }
+        public string UserPassword { get; set; }
+        public string UserPhone { get; set; }
+        public string UserMail { get; set; }
+        public bool IsDriver { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<CarTable> CarTables { get; set; }
+        public virtual ICollection<Comments> Comments { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<TravleTable> TravleTables { get; set; }
+        public virtual ICollection<Requests> Requests { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Travels> Travels { get; set; }
     }
 }

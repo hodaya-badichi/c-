@@ -9,6 +9,7 @@ D:\Project\Dal\bin\Debug\EntityFramework.SqlServer.dll
 D:\Project\Dal\bin\Debug\EntityFramework.xml
 D:\Project\Dal\bin\Debug\EntityFramework.SqlServer.xml
 D:\Project\Dal\obj\Debug\Dal.csproj.CopyComplete
+C:\Users\user1\Desktop\פרויקט c#\Project\Dal\obj\Debug\Dal.csproj.CoreCompileInputs.cache
 C:\Users\user1\Desktop\פרויקט c#\Project\Dal\bin\Debug\Dal.dll.config
 C:\Users\user1\Desktop\פרויקט c#\Project\Dal\bin\Debug\Dal.dll
 C:\Users\user1\Desktop\פרויקט c#\Project\Dal\bin\Debug\Dal.pdb
@@ -16,8 +17,7 @@ C:\Users\user1\Desktop\פרויקט c#\Project\Dal\bin\Debug\EntityFramework.dll
 C:\Users\user1\Desktop\פרויקט c#\Project\Dal\bin\Debug\EntityFramework.SqlServer.dll
 C:\Users\user1\Desktop\פרויקט c#\Project\Dal\bin\Debug\EntityFramework.xml
 C:\Users\user1\Desktop\פרויקט c#\Project\Dal\bin\Debug\EntityFramework.SqlServer.xml
-C:\Users\user1\Desktop\פרויקט c#\Project\Dal\obj\Debug\Dal.csprojAssemblyReference.cache
-C:\Users\user1\Desktop\פרויקט c#\Project\Dal\obj\Debug\Dal.csproj.CoreCompileInputs.cache
 C:\Users\user1\Desktop\פרויקט c#\Project\Dal\obj\Debug\Dal.csproj.CopyComplete
 C:\Users\user1\Desktop\פרויקט c#\Project\Dal\obj\Debug\Dal.dll
 C:\Users\user1\Desktop\פרויקט c#\Project\Dal\obj\Debug\Dal.pdb
+C:\Users\user1\Desktop\פרויקט c#\Project\Dal\obj\Debug\Dal.csprojAssemblyReference.cache

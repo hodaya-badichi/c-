@@ -4,13 +4,13 @@ namespace Dal
 {
     public class UserDal
     {
-        public static UsersTable Login(string id,string ps)
+        public static Users Login(string id,string ps)
         {
             try
             {
-                using (taxisEntities db = new taxisEntities())
+                using (TravelsProjectEntities db = new TravelsProjectEntities())
                 {
-                    UsersTable us = db.UsersTables.Where(u => u.UserCode == id && u.UserPassword == ps).FirstOrDefault();
+                    Users us = db.Users.Where(u => u.UserId == id && u.UserPassword == ps).FirstOrDefault();
                     
                     if(us!=null)
                     return us;
@@ -24,22 +24,28 @@ namespace Dal
             
         }
 
-        public static bool AddNew(UsersTable u)
+        public static bool Register(Users u)
         {
             try
             {
-                using (taxisEntities db = new taxisEntities())
+                using (TravelsProjectEntities db = new TravelsProjectEntities())
                 {
 
-                    db.UsersTables.Add(u);
-                    db.SaveChanges();
-                    return true;
+                    db.Users.Add(u);
+                    try {db.SaveChanges();     }
+                          catch(Exception ee)
+                    {
+                        return false;
+                    }    
+                     return true;
                 }
+                
             }
             catch(Exception e)
             {
                 return false;
             }
+            
         }
     }
 }

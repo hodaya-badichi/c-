@@ -1,0 +1,146 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="TravelsProjectModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Comments">
+    <Key>
+      <PropertyRef Name="CommentId" />
+    </Key>
+    <Property Name="CommentId" Type="int" Nullable="false" />
+    <Property Name="UserId" Type="char" MaxLength="9" Nullable="false" />
+    <Property Name="RequestCode" Type="int" Nullable="false" />
+    <Property Name="Summarry" Type="varchar" MaxLength="200" Nullable="false" />
+    <Property Name="Date" Type="date" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Requests">
+    <Key>
+      <PropertyRef Name="RequestCode" />
+    </Key>
+    <Property Name="RequestCode" Type="int" Nullable="false" />
+    <Property Name="UserId" Type="char" MaxLength="9" Nullable="false" />
+    <Property Name="TravelCode" Type="int" />
+    <Property Name="SourceAddress" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="DestinationAddress" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Date" Type="datetime" Nullable="false" />
+    <Property Name="Frequency" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="Summarry" Type="varchar" MaxLength="200" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <EntityType Name="Travels">
+    <Key>
+      <PropertyRef Name="TravleCode" />
+    </Key>
+    <Property Name="TravleCode" Type="int" Nullable="false" />
+    <Property Name="UserId" Type="char" MaxLength="9" Nullable="false" />
+    <Property Name="Date" Type="datetime" Nullable="false" />
+    <Property Name="SourceAddress" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="DestinationAddress" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="NumOfPassengers" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Users">
+    <Key>
+      <PropertyRef Name="UserId" />
+    </Key>
+    <Property Name="UserId" Type="char" MaxLength="9" Nullable="false" />
+    <Property Name="UserFirstName" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="UserLastName" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="UserPassword" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="UserPhone" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="UserMail" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="IsDriver" Type="bit" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_Comments_Requests">
+    <End Role="Requests" Type="Self.Requests" Multiplicity="1" />
+    <End Role="Comments" Type="Self.Comments" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Requests">
+        <PropertyRef Name="RequestCode" />
+      </Principal>
+      <Dependent Role="Comments">
+        <PropertyRef Name="RequestCode" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Comments_Users">
+    <End Role="Users" Type="Self.Users" Multiplicity="1" />
+    <End Role="Comments" Type="Self.Comments" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="UserId" />
+      </Principal>
+      <Dependent Role="Comments">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Requests_Travels">
+    <End Role="Travels" Type="Self.Travels" Multiplicity="0..1" />
+    <End Role="Requests" Type="Self.Requests" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Travels">
+        <PropertyRef Name="TravleCode" />
+      </Principal>
+      <Dependent Role="Requests">
+        <PropertyRef Name="TravelCode" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Requests_Users">
+    <End Role="Users" Type="Self.Users" Multiplicity="1" />
+    <End Role="Requests" Type="Self.Requests" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="UserId" />
+      </Principal>
+      <Dependent Role="Requests">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Travels_Users">
+    <End Role="Users" Type="Self.Users" Multiplicity="1" />
+    <End Role="Travels" Type="Self.Travels" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="UserId" />
+      </Principal>
+      <Dependent Role="Travels">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="TravelsProjectModelStoreContainer">
+    <EntitySet Name="Comments" EntityType="Self.Comments" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Requests" EntityType="Self.Requests" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Travels" EntityType="Self.Travels" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_Comments_Requests" Association="Self.FK_Comments_Requests">
+      <End Role="Requests" EntitySet="Requests" />
+      <End Role="Comments" EntitySet="Comments" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Comments_Users" Association="Self.FK_Comments_Users">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="Comments" EntitySet="Comments" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Requests_Travels" Association="Self.FK_Requests_Travels">
+      <End Role="Travels" EntitySet="Travels" />
+      <End Role="Requests" EntitySet="Requests" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Requests_Users" Association="Self.FK_Requests_Users">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="Requests" EntitySet="Requests" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Travels_Users" Association="Self.FK_Travels_Users">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="Travels" EntitySet="Travels" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
