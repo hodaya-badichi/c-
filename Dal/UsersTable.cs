@@ -12,37 +12,25 @@ namespace Dal
     using System;
     using System.Collections.Generic;
     
-    public partial class Requests
+    public partial class UsersTable
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Requests()
+        public UsersTable()
         {
-<<<<<<< HEAD:Dal/Requests.cs
-            this.Comments = new HashSet<Comments>();
-=======
             this.RequestsForUsers = new HashSet<RequestsForUser>();
             this.travel_discription_u = new HashSet<travel_discription_u>();
->>>>>>> 318f8ce07cf3a0e9e0cded04481984ce18c09d89:Dal/RequestsTable.cs
         }
     
-        public int RequestCode { get; set; }
-        public string UserId { get; set; }
-        public Nullable<int> TravelCode { get; set; }
-        public string SourceAddress { get; set; }
-        public string DestinationAddress { get; set; }
-        public System.DateTime Date { get; set; }
-        public string Frequency { get; set; }
-        public string Summarry { get; set; }
+        public string UserCode { get; set; }
+        public string UserName { get; set; }
+        public string UserAdress { get; set; }
+        public string UserPhoneNumber { get; set; }
+        public string UserEmail { get; set; }
+        public string UserPassword { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-<<<<<<< HEAD:Dal/Requests.cs
-        public virtual ICollection<Comments> Comments { get; set; }
-        public virtual Travels Travels { get; set; }
-        public virtual Users Users { get; set; }
-=======
         public virtual ICollection<RequestsForUser> RequestsForUsers { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<travel_discription_u> travel_discription_u { get; set; }
->>>>>>> 318f8ce07cf3a0e9e0cded04481984ce18c09d89:Dal/RequestsTable.cs
     }
 }

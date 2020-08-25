@@ -21,6 +21,7 @@ namespace Project.Controllers
 
             return Ok(Bl.UserBl.Login(id, password));
         }
+<<<<<<< HEAD
     
 
         [Route("register")]
@@ -28,6 +29,13 @@ namespace Project.Controllers
         public bool Register(UserDto user)
         {
            return Bl.UserBl.Register(user);
+=======
+        [HttpPut]
+        [Route("register/{user}")]
+        public bool AddNew([FromUri] UserDto user)
+        {
+           return Bl.UserBl.AddNew(user);
+>>>>>>> 318f8ce07cf3a0e9e0cded04481984ce18c09d89
         }
     }
 }

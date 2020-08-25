@@ -43,7 +43,10 @@
   <ItemGroup>
     <Compile Include="Class1.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+<<<<<<< HEAD
     <Compile Include="ReqeustBl.cs" />
+=======
+>>>>>>> 318f8ce07cf3a0e9e0cded04481984ce18c09d89
     <Compile Include="TravleBl.cs" />
     <Compile Include="UserBl.cs" />
   </ItemGroup>

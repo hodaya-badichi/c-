@@ -9,6 +9,7 @@ namespace Bl
 {
     public class TravleBl
     {
+<<<<<<< HEAD
         public static List<TravelsDto> TrvlesOfEmployee(string id)
         {
             
@@ -23,6 +24,22 @@ namespace Bl
             //    }
             //    return travlesOfEmpDto;
             //}
+=======
+        public static List<TravleDto> TrvlesOfEmployee(string id)
+        {
+            
+            bool b=  Dal.EmployeeDal.Exist(id);
+            if (b)
+            {
+                List<TravleTable> travlesOfEmpDal = Dal.TravleDal.TrvlesOfEmployee(id);
+                List<TravleDto> travlesOfEmpDto = new List<TravleDto>();
+                foreach (var item in travlesOfEmpDal)
+                {
+                    travlesOfEmpDto.Add(new TravleDto(item));
+                }
+                return travlesOfEmpDto;
+            }
+>>>>>>> 318f8ce07cf3a0e9e0cded04481984ce18c09d89
 
             return null;
         }

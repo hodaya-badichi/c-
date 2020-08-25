@@ -16,7 +16,10 @@ namespace Project.Controllers
         [Route("travlesOfEmp/{id}")]
         public IHttpActionResult TrvlesOfEmployee([FromUri] string id)
         {
+<<<<<<< HEAD
     
+=======
+>>>>>>> 318f8ce07cf3a0e9e0cded04481984ce18c09d89
             return Ok(Bl.TravleBl.TrvlesOfEmployee(id));
         }
     }
